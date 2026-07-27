@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  /* Industrial / operations palette -- deliberately not the default
+     purple-SaaS or cream-serif look. Slate base reads as a working
+     tool, amber is the single accent (equipment/hazard association,
+     used sparingly for primary actions and status). */
+  --color-graphite-950: #0F1417;
+  --color-graphite-900: #161D22;
+  --color-graphite-800: #1F2A31;
+  --color-graphite-700: #2C3A43;
+  --color-graphite-600: #445561;
+  --color-graphite-500: #647885;
+  --color-graphite-400: #8FA0AB;
+  --color-graphite-100: #E8ECEE;
+  --color-graphite-50: #F4F6F7;
+
+  --color-amber-600: #C7761A;
+  --color-amber-500: #E08A2A;
+  --color-amber-100: #FBEBD8;
+
+  --color-status-active: #3A8C5F;
+  --color-status-maintenance: #C7761A;
+  --color-status-idle: #647885;
+  --color-status-retired: #A44A4A;
+
+  --font-display: "Space Grotesk", "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-graphite-50);
+  color: var(--color-graphite-900);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
