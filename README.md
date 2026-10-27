@@ -93,14 +93,25 @@ equiptrack-eam-platform/
 - **UUID primary keys** on all business models for secure, non-guessable URLs.
 
 ## Next steps
-1. **Quotations** -- PDF template engine (5-10 formats), tied to Asset + Customer
-2. **Company logo / letterhead** -- Tenant upload UI + PDF injection
-3. **Vendor email** -- SMTP/SES integration, logged against PO/vendor record
-4. **OCR for payment receipts** -- Tesseract or cloud OCR (Google Vision/AWS Textract)
-5. **Production hardening** -- Postgres, env-based secrets, CORS allowlist, rate limiting, S3 storage
+1. **Vendor email** -- SMTP/SES integration, logged against PO/vendor record
+2. **OCR for payment receipts** -- Tesseract or cloud OCR (Google Vision/AWS Textract)
+3. **Production hardening** -- Postgres, env-based secrets, CORS allowlist, rate limiting, S3 storage
 
 ## Tech stack
 - **Backend**: Django 6.0, Django REST Framework, SimpleJWT, django-filter
-- **Frontend**: React 19, Vite, TypeScript, TailwindCSS, Axios, React Router
+- **Frontend**: React 19, Vite, TypeScript, TailwindCSS, Lucide Icons, Axios, React Router
 - **Database**: SQLite (dev), planned Postgres (prod)
 - **Auth**: JWT with tenant/role claims
+
+## Running the app
+```bash
+# Backend (from project root):
+python manage.py runserver 8000
+
+# Frontend (from project root):
+cd frontend
+npm run dev
+```
+- Backend: http://127.0.0.1:8000
+- Frontend: http://localhost:5173
+- Login: `admin` / `admin12345`
