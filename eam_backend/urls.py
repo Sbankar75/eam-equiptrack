@@ -6,6 +6,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView
 
 from accounts.views import TenantTokenObtainPairView, MeView
+from eam_backend.dashboard_views import DashboardStatsView, DashboardReportsView
 from assets.views import AssetViewSet, AssetPhotoViewSet
 from logbooks.views import LogbookEntryViewSet
 from customers.views import CustomerViewSet, MarketDataViewSet
@@ -36,6 +37,8 @@ urlpatterns = [
     path("api/auth/login/", TenantTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/auth/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/auth/me/", MeView.as_view(), name="me"),
+    path("api/dashboard/stats/", DashboardStatsView.as_view(), name="dashboard-stats"),
+    path("api/dashboard/reports/", DashboardReportsView.as_view(), name="dashboard-reports"),
     path("api/", include(router.urls)),
 ]
 

@@ -1,38 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  /* Industrial / operations palette -- deliberately not the default
-     purple-SaaS or cream-serif look. Slate base reads as a working
-     tool, amber is the single accent (equipment/hazard association,
-     used sparingly for primary actions and status). */
-  --color-graphite-950: #0F1417;
-  --color-graphite-900: #161D22;
-  --color-graphite-800: #1F2A31;
-  --color-graphite-700: #2C3A43;
-  --color-graphite-600: #445561;
-  --color-graphite-500: #647885;
-  --color-graphite-400: #8FA0AB;
-  --color-graphite-100: #E8ECEE;
-  --color-graphite-50: #F4F6F7;
+  /* Enterprise EAM palette - teal primary with professional neutral base */
+  --color-primary-900: #0D3B3B;
+  --color-primary-800: #115E5E;
+  --color-primary-700: #0E7474;
+  --color-primary-600: #0F8585;
+  --color-primary-500: #14A3A3;
+  --color-primary-400: #2DBFBF;
+  --color-primary-300: #5CD6D6;
+  --color-primary-200: #99E5E5;
+  --color-primary-100: #CCF2F2;
+  --color-primary-50: #EDFAFA;
 
-  --color-amber-600: #C7761A;
-  --color-amber-500: #E08A2A;
-  --color-amber-100: #FBEBD8;
+  --color-accent-600: #7C3AED;
+  --color-accent-500: #8B5CF6;
+  --color-accent-100: #EDE9FE;
 
-  --color-status-active: #3A8C5F;
-  --color-status-maintenance: #C7761A;
-  --color-status-idle: #647885;
-  --color-status-retired: #A44A4A;
+  --color-orange-600: #EA580C;
+  --color-orange-500: #F97316;
+  --color-orange-100: #FFF7ED;
 
-  --font-display: "Space Grotesk", "IBM Plex Sans", ui-sans-serif, sans-serif;
-  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748B;
+  --color-slate-400: #94A3B8;
+  --color-slate-300: #CBD5E1;
+  --color-slate-200: #E2E8F0;
+  --color-slate-100: #F1F5F9;
+  --color-slate-50: #F8FAFC;
+
+  --color-success: #16A34A;
+  --color-warning: #EAB308;
+  --color-danger: #DC2626;
+  --color-info: #2563EB;
+
+  /* Legacy aliases (backward compat for existing pages) */
+  --color-graphite-950: #0F172A;
+  --color-graphite-900: #1E293B;
+  --color-graphite-800: #334155;
+  --color-graphite-700: #475569;
+  --color-graphite-600: #475569;
+  --color-graphite-500: #64748B;
+  --color-graphite-400: #94A3B8;
+  --color-graphite-100: #E2E8F0;
+  --color-graphite-50: #F8FAFC;
+
+  --color-amber-600: #0E7474;
+  --color-amber-500: #0F8585;
+  --color-amber-100: #EDFAFA;
+
+  --color-status-active: #16A34A;
+  --color-status-maintenance: #EA580C;
+  --color-status-idle: #64748B;
+  --color-status-retired: #DC2626;
+
+  --font-display: "Inter", "Segoe UI", ui-sans-serif, sans-serif;
+  --font-body: "Inter", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-graphite-50);
-  color: var(--color-graphite-900);
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-900);
+  -webkit-font-smoothing: antialiased;
 }
 
 .font-display {
@@ -41,4 +75,20 @@ body {
 
 .font-mono {
   font-family: var(--font-mono);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-300);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-slate-400);
 }

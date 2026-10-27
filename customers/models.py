@@ -72,7 +72,6 @@ class CustomerContact(models.Model):
     def __str__(self):
         return f"{self.name} ({self.customer.name})"
 
-
 class MarketData(models.Model):
     """
     Admin-only internal market intelligence notes.

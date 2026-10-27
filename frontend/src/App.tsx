@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 import AssetList from "./pages/AssetList";
 import AssetDetail from "./pages/AssetDetail";
 import AssetForm from "./pages/AssetForm";
@@ -19,6 +20,7 @@ import InvoiceList from "./pages/InvoiceList";
 import PaymentReceipts from "./pages/PaymentReceipts";
 import InventoryList from "./pages/InventoryList";
 import MaintenancePage from "./pages/MaintenancePage";
+import ReportsPage from "./pages/ReportsPage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -32,17 +34,26 @@ function AppRoutes() {
     <Routes>
       <Route path="/login" element={<Login />} />
 
-      {/* Equipment */}
+      {/* Dashboard */}
+      <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+
+      {/* Assets */}
       <Route path="/assets" element={<ProtectedRoute><AssetList /></ProtectedRoute>} />
       <Route path="/assets/new" element={<ProtectedRoute><AssetForm /></ProtectedRoute>} />
       <Route path="/assets/:id" element={<ProtectedRoute><AssetDetail /></ProtectedRoute>} />
 
-      {/* Customers */}
-      <Route path="/customers" element={<ProtectedRoute><CustomerList /></ProtectedRoute>} />
-      <Route path="/customers/new" element={<ProtectedRoute><CustomerForm /></ProtectedRoute>} />
-      <Route path="/customers/:id" element={<ProtectedRoute><CustomerDetail /></ProtectedRoute>} />
-      <Route path="/customers/:id/edit" element={<ProtectedRoute><CustomerForm /></ProtectedRoute>} />
-      <Route path="/market-data" element={<ProtectedRoute><MarketDataPage /></ProtectedRoute>} />
+      {/* Work Management */}
+      <Route path="/work-orders" element={<ProtectedRoute><WorkOrderList /></ProtectedRoute>} />
+      <Route path="/work-orders/new" element={<ProtectedRoute><WorkOrderForm /></ProtectedRoute>} />
+      <Route path="/work-orders/:id" element={<ProtectedRoute><WorkOrderForm /></ProtectedRoute>} />
+
+      {/* Maintenance */}
+      <Route path="/maintenance" element={<ProtectedRoute><MaintenancePage /></ProtectedRoute>} />
+
+      {/* Billing */}
+      <Route path="/invoices" element={<ProtectedRoute><InvoiceList /></ProtectedRoute>} />
+      <Route path="/purchase-orders" element={<ProtectedRoute><PurchaseOrderList /></ProtectedRoute>} />
+      <Route path="/receipts" element={<ProtectedRoute><PaymentReceipts /></ProtectedRoute>} />
 
       {/* Workforce */}
       <Route path="/operators" element={<ProtectedRoute><OperatorList /></ProtectedRoute>} />
@@ -51,19 +62,18 @@ function AppRoutes() {
       <Route path="/payroll" element={<ProtectedRoute><Payroll /></ProtectedRoute>} />
       <Route path="/attendance" element={<ProtectedRoute><AttendancePage /></ProtectedRoute>} />
 
-      {/* Billing */}
-      <Route path="/work-orders" element={<ProtectedRoute><WorkOrderList /></ProtectedRoute>} />
-      <Route path="/work-orders/new" element={<ProtectedRoute><WorkOrderForm /></ProtectedRoute>} />
-      <Route path="/work-orders/:id" element={<ProtectedRoute><WorkOrderForm /></ProtectedRoute>} />
-      <Route path="/purchase-orders" element={<ProtectedRoute><PurchaseOrderList /></ProtectedRoute>} />
-      <Route path="/invoices" element={<ProtectedRoute><InvoiceList /></ProtectedRoute>} />
-      <Route path="/receipts" element={<ProtectedRoute><PaymentReceipts /></ProtectedRoute>} />
-
-      {/* Spares */}
+      {/* Inventory & Customers */}
       <Route path="/inventory" element={<ProtectedRoute><InventoryList /></ProtectedRoute>} />
-      <Route path="/maintenance" element={<ProtectedRoute><MaintenancePage /></ProtectedRoute>} />
+      <Route path="/customers" element={<ProtectedRoute><CustomerList /></ProtectedRoute>} />
+      <Route path="/customers/new" element={<ProtectedRoute><CustomerForm /></ProtectedRoute>} />
+      <Route path="/customers/:id" element={<ProtectedRoute><CustomerDetail /></ProtectedRoute>} />
+      <Route path="/customers/:id/edit" element={<ProtectedRoute><CustomerForm /></ProtectedRoute>} />
+      <Route path="/market-data" element={<ProtectedRoute><MarketDataPage /></ProtectedRoute>} />
 
-      <Route path="*" element={<Navigate to="/assets" replace />} />
+      {/* Reports */}
+      <Route path="/reports" element={<ProtectedRoute><ReportsPage /></ProtectedRoute>} />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
